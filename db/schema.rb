@@ -11,10 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213012513) do
+ActiveRecord::Schema.define(version: 20131215221751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.integer  "number"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["customer_id"], name: "index_accounts_on_customer_id", using: :btree
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "customers", ["employee_id"], name: "index_customers_on_employee_id", using: :btree
+
+  create_table "employees", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoices", force: true do |t|
+    t.integer  "number"
+    t.string   "frequency"
+    t.integer  "sale_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invoices", ["sale_id"], name: "index_invoices_on_sale_id", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sales", force: true do |t|
     t.string   "employee"
