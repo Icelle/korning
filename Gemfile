@@ -43,3 +43,15 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'rspec-rails'       # These are set up from installing RSpec and Capybara
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem "spork-rails"
+  gem 'database_cleaner'
+end
+
+group :test do
+  gem 'rb-fsevent'
+  gem 'growl'
+end
