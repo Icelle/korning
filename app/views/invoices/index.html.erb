@@ -1,0 +1,19 @@
+<h1>Invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice Number</th>
+      <th>Invoice Frequency</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.number %></td>
+        <td><%= invoice.frequency %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

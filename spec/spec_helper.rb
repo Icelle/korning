@@ -52,7 +52,6 @@ Spork.prefork do
     config.before(:suite) do
       DatabaseCleaner[:active_record].strategy = :truncation, {:except => %w[sales]}
       DatabaseCleaner.clean_with(:truncation, {:except => %w[sales]})
-
     end
 
     config.before(:each) do

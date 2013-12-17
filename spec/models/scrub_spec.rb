@@ -5,6 +5,8 @@ describe Scrub do
     Scrub.load
     expect(Employee.count).to eql(4)
     expect(Customer.count).to eql(6)
+    expect(Product.count).to eql(4)
+    expect(Invoice.count).to eql(996)
   end
 
   it "should scrub_employee" do

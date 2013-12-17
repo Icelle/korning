@@ -49,6 +49,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem "spork-rails"
   gem 'database_cleaner'
+  gem 'pry'
 end
 
 group :test do
